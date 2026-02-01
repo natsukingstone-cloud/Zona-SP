@@ -157,35 +157,26 @@ a:hover{ opacity:.9; }
   gap:10px;
   z-index:2;
   text-align:center;
-  transform: translateY(-10px);
+  transform: translateY(34px);
 }
 
 .hero-overlay a{
   color:#fff;
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 300;
   letter-spacing: .12em;
   opacity: .92;
   text-shadow: 0 2px 10px rgba(0,0,0,.35);
-  padding: 6px 0;
+  padding: 4px 0;
   white-space: nowrap;
+  font-family: "Times New Roman", Georgia, serif; /* Cha-anっぽい雰囲気 */
 }
+
 
 @media (max-width: 767px){
   .hero__title,
   .hero__lead,
   .hero__actions{ display:none; }
-}
-
-/* back to top */
-.back-top{
-  margin: 18px 0 0;
-}
-.back-top a{
-  font-size: 12px;
-  color: #999;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 2px;
 }
 
 /* About text */
@@ -284,15 +275,20 @@ a:hover{ opacity:.9; }
   top:14px;
 }
 .menu-hero__logo img{ height:26px; width:auto; display:block; }
+
+/* MenuのFV：MENUを中央に */
 .menu-hero__title{
-  position:absolute;
-  left:16px;
-  bottom:14px;
-  margin:0;
-  font-size:20px;
-  letter-spacing:.12em;
-  color:#fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 30px;                          /* TOPのリンクと合わせる */
+  letter-spacing: .12em;
+  color: #fff;
   text-shadow: 0 2px 10px rgba(0,0,0,.35);
+  font-family: "Times New Roman", Georgia, serif; /* TOPと同じ */
 }
 
 /* Menu page */
@@ -364,7 +360,7 @@ a:hover{ opacity:.9; }
   border:0;
 }
 
-/* Animation */
+/* ===== Animation (base) ===== */
 .reveal{
   opacity: 0;
   transform: translateY(10px);
@@ -378,62 +374,30 @@ a:hover{ opacity:.9; }
 @media (prefers-reduced-motion: reduce){
   .reveal{ opacity:1; transform:none; transition:none; }
 }
-@media (hover: hover){
-  .photo img,
-  .menu-item__photo img,
-  .season-card__photo img{
-    transition: transform .6s ease;
-  }
-  .photo:hover img,
-  .menu-item__photo:hover img,
-  .season-card__photo:hover img{
-    transform: scale(1.03);
-  }
-}
 
-/* Menu: stronger reveal (Cha-an風の大きな動き) */
+/* ===== Menu Motion (Cha-an style) ===== */
 .menu-item.reveal{
-  transform: translateY(26px);
-}
-.menu-item.reveal.is-visible{
-  transform: translateY(0);
-}
-.menu-item.reveal{
-  transition-duration: .9s;
-}
-
-/* ================================
-   D) Menu Motion (Cha-an style)
-   大きく見せて、動きは静か
-================================ */
-
-/* 1) revealを“強く”する（Menuだけ） */
-.menu-item.reveal{
+  opacity: 0;
   transform: translateY(36px);
   transition: opacity 1s ease, transform 1s ease;
 }
-
 .menu-item.reveal.is-visible{
+  opacity: 1;
   transform: translateY(0);
 }
 
-/* 2) 写真に“ふわっと寄る”動き（PCだけ） */
+/* PC：写真にふわっと寄る */
 @media (hover: hover){
-  .menu-item__photo{
-    overflow: hidden;
-    border-radius: 0; /* full-bleedの邪魔しない */
-  }
-
-  .menu-item__photo img{
-    transition: transform 1.2s ease;
-  }
-
-  .menu-item:hover .menu-item__photo img{
-    transform: scale(1.08);
-  }
+  .menu-item__photo{ overflow: hidden; }
+  .menu-item__photo img{ transition: transform 1.2s ease; }
+  .menu-item:hover .menu-item__photo img{ transform: scale(1.08); }
 }
 
-/* 3) SPではタップした時に少し反応（押した感） */
+/* SP：タップ反応は transform を使わない */
 .menu-item:active{
-  transform: scale(0.99);
+  opacity: .98;
 }
+
+/* FVだけ左右余白なし（SP） */
+.hero.section{ padding: 0; }
+
