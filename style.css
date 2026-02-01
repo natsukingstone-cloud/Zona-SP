@@ -1,0 +1,439 @@
+:root{
+  --bg:#fff;
+  --text:#111;
+  --muted:#777;
+  --line:#eee;
+  --accent:#e11d48;
+  --container:960px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+
+body{
+  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+img{ max-width:100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+a:hover{ opacity:.9; }
+
+.container{
+  width: min(92vw, var(--container));
+  margin-inline: auto;
+}
+
+/* section */
+.section{ padding: 0 20px; }
+.section__title{ font-size: 24px; margin: 0 0 10px; }
+.section__text{ margin: 0 0 14px; color: var(--muted); }
+
+.section-divider{
+  width: min(92vw, var(--container));
+  margin: 56px auto;
+  border-top: 1px solid var(--line);
+}
+
+/* header (PC only, SP hidden) */
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 10px 16px;
+}
+
+.logo__img{ height: 26px; width:auto; display:block; }
+
+.hamburger{
+  width:44px; height:44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  gap:4px;
+  padding:10px;
+  cursor:pointer;
+}
+
+.hamburger__bar{ width:18px; height:2px; background:#111; display:block; }
+
+.nav{ display:none; padding: 8px 16px 14px; }
+.nav.is-open{ display:block; }
+
+.nav__link{
+  display:block;
+  padding:12px 0;
+  border-top: 1px solid var(--line);
+  font-weight:500;
+}
+
+@media (min-width: 768px){
+  .hamburger{ display:none; }
+  .nav{
+    display:flex;
+    gap:16px;
+    padding: 0 16px 12px;
+    border-top: 1px solid var(--line);
+  }
+  .nav__link{ border-top:none; padding:10px 0; }
+}
+
+@media (max-width: 767px){
+  .header{ display:none; }
+}
+
+/* HERO */
+.hero{ padding-top: 18px; }
+
+.hero__media{
+  position: relative;
+  overflow: hidden;
+  height: 60vh;
+  min-height: 440px;
+}
+
+.hero__media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.hero__media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.25);
+  z-index:1;
+}
+
+.hero-logo{
+  position:absolute;
+  top: 16px;
+  left: 16px;
+  z-index:4;
+}
+
+.hero-logo img{
+  height: 22px;
+  width:auto;
+  display:block;
+  opacity:.9;
+}
+
+.hero-copy{
+  position:absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 76%;
+  z-index:3;
+  color: rgba(255,255,255,.92);
+  text-shadow: 0 2px 12px rgba(0,0,0,.35), 0 0 1px rgba(0,0,0,.4);
+}
+
+.hero-copy__title{ margin:0 0 6px; font-size: 16px; line-height: 1.4; }
+.hero-copy__lead{ margin:0; font-size: 12px; line-height: 1.7; opacity: .92; }
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  z-index:2;
+  text-align:center;
+  transform: translateY(-10px);
+}
+
+.hero-overlay a{
+  color:#fff;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: .12em;
+  opacity: .92;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
+  padding: 6px 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px){
+  .hero__title,
+  .hero__lead,
+  .hero__actions{ display:none; }
+}
+
+/* back to top */
+.back-top{
+  margin: 18px 0 0;
+}
+.back-top a{
+  font-size: 12px;
+  color: #999;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2px;
+}
+
+/* About text */
+.about-lead-en{
+  font-size: 10px;
+  letter-spacing: .18em;
+  color:#aaa;
+  margin: 6px 0 8px;
+  text-transform: uppercase;
+}
+.about-lead-jp{ font-size: 15px; line-height: 1.8; margin: 0 0 20px; }
+.about-subtitle{ font-size: 16px; color:#999; letter-spacing:.08em; margin: 18px 0 8px; }
+.about-text-en{ font-size: 13px; line-height:1.7; color:#777; margin:0 0 12px; }
+
+/* photos */
+.photo{ margin: 18px 0 26px; }
+.photo img{ border-radius: 2px; }
+
+@media (max-width: 767px){
+  .photo img,
+  .menu-item__photo img,
+  .season-card__photo img{
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+    height: 380px;
+    object-fit: cover;
+  }
+}
+
+/* Seasonal */
+.season-card{ max-width:520px; margin: 18px auto 0; text-align:left; }
+.season-card__photo{ max-width:240px; margin: 0 auto 14px; }
+.season-card__name{ font-size:18px; margin:0 0 6px; letter-spacing:.02em; }
+.season-card__sub{ font-size:12px; color:#999; margin:0 0 12px; }
+.season-card__desc-en{ font-size:13px; line-height:1.7; color:#777; margin:0 0 10px; }
+.season-card__desc-jp{ font-size:14px; line-height:1.9; margin:0; color:#333; }
+@media (max-width: 767px){
+  .season-card__photo{ max-width:none; margin:0; }
+}
+
+/* Visit */
+.visit{ text-align:left; }
+.visit__label{ font-size:12px; letter-spacing:.12em; color:#999; margin:14px 0 10px; text-transform: uppercase; }
+.visit__map{ width:100%; margin: 0 0 14px; }
+.visit__map .img-placeholder{
+  height: 240px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display:grid;
+  place-items:center;
+  color:#999;
+}
+.visit__en{ font-size:13px; color:#777; line-height:1.7; margin:12px 0 0; }
+.visit__jp{ font-size:14px; color:#333; line-height:1.8; margin:14px 0 0; }
+
+.visit__sns{
+  display:flex;
+  justify-content:flex-start;
+  gap: 16px;
+  margin: 16px 0 20px;
+}
+.visit__sns a{ display:inline-flex; align-items:center; justify-content:center; padding:6px; }
+.visit__sns img{ width:24px; height:24px; opacity:.85; transition: opacity .2s ease; }
+.visit__sns img:hover{ opacity: 1; }
+
+.visit__hours{ margin-top: 22px; }
+.visit__note{ font-size:12px; color:#999; margin:10px 0 0; }
+.visit__note-jp{ display:inline-block; font-size:12px; color:#999; margin-top:6px; }
+
+/* Footer */
+.footer{ padding: 18px 0; border-top: 1px solid var(--line); }
+@media (max-width: 767px){
+  .footer{ border-top: none; }
+}
+.footer__inner{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  gap:10px;
+}
+.footer__copy{ margin:0; color: var(--muted); font-size:12px; }
+
+/* Menu hero */
+.menu-hero{
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+.menu-hero__img{ width:100%; height:100%; object-fit: cover; }
+.menu-hero__logo{
+  position:absolute;
+  left:16px;
+  top:14px;
+}
+.menu-hero__logo img{ height:26px; width:auto; display:block; }
+.menu-hero__title{
+  position:absolute;
+  left:16px;
+  bottom:14px;
+  margin:0;
+  font-size:20px;
+  letter-spacing:.12em;
+  color:#fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
+}
+
+/* Menu page */
+.menu-page__lead{ font-size:13px; color:#999; margin: 8px 0 24px; }
+
+.menu-tabs{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  padding: 10px 0 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.menu-tabs a{ font-size:12px; color:#777; padding:6px 0; }
+.menu-tabs a:hover{ color:#111; }
+
+.menu-cat{
+  font-size:14px;
+  letter-spacing:.12em;
+  text-transform: uppercase;
+  color:#777;
+  margin: 0 0 14px;
+}
+
+.menu-item{
+  max-width: 640px;
+  margin: 0 auto 26px;
+}
+.menu-item__photo{ max-width: 88%; margin: 0 auto 12px; }
+.menu-item__name{ font-size:18px; margin:0 0 6px; }
+.menu-item__sub{ font-size:12px; color:#999; margin:0 0 10px; }
+.menu-item__price{ font-weight:600; color:#111; margin:0; }
+
+.menu-back{ text-align:center; margin: 12px 0 20px; }
+.menu-back a{ font-size:12px; color:#999; border-bottom: 1px solid #ddd; padding-bottom:2px; }
+
+.menu-subnote{ font-size:12px; color:#999; text-align:center; margin:12px 0 8px; letter-spacing:.08em; }
+
+.menu-list-text{
+  max-width:520px;
+  margin: 0 auto 32px;
+  padding:0;
+  list-style:none;
+}
+.menu-row{
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.menu-row:last-child{ border-bottom:none; }
+.menu-row__left{ display:flex; flex-direction: column; gap:2px; }
+.menu-row__en{ font-size:14px; }
+.menu-row__jp{ font-size:12px; color:#777; }
+.menu-row__price{ font-size:14px; white-space: nowrap; }
+
+.menu-page__note{ font-size:12px; color:#999; line-height:1.7; margin-top:28px; }
+.menu-page__back{ margin-top:18px; }
+
+/* SEO hidden h1 */
+.visually-hidden{
+  position:absolute;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border:0;
+}
+
+/* Animation */
+.reveal{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .7s ease, transform .7s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+@media (hover: hover){
+  .photo img,
+  .menu-item__photo img,
+  .season-card__photo img{
+    transition: transform .6s ease;
+  }
+  .photo:hover img,
+  .menu-item__photo:hover img,
+  .season-card__photo:hover img{
+    transform: scale(1.03);
+  }
+}
+
+/* Menu: stronger reveal (Cha-an風の大きな動き) */
+.menu-item.reveal{
+  transform: translateY(26px);
+}
+.menu-item.reveal.is-visible{
+  transform: translateY(0);
+}
+.menu-item.reveal{
+  transition-duration: .9s;
+}
+
+/* ================================
+   D) Menu Motion (Cha-an style)
+   大きく見せて、動きは静か
+================================ */
+
+/* 1) revealを“強く”する（Menuだけ） */
+.menu-item.reveal{
+  transform: translateY(36px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.menu-item.reveal.is-visible{
+  transform: translateY(0);
+}
+
+/* 2) 写真に“ふわっと寄る”動き（PCだけ） */
+@media (hover: hover){
+  .menu-item__photo{
+    overflow: hidden;
+    border-radius: 0; /* full-bleedの邪魔しない */
+  }
+
+  .menu-item__photo img{
+    transition: transform 1.2s ease;
+  }
+
+  .menu-item:hover .menu-item__photo img{
+    transform: scale(1.08);
+  }
+}
+
+/* 3) SPではタップした時に少し反応（押した感） */
+.menu-item:active{
+  transform: scale(0.99);
+}
