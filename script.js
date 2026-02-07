@@ -1,18 +1,9 @@
 // ================================
-// 0) 共通：DOM取得
+// 1) ハンバーガーメニュー開閉（PCヘッダー用）
 // ================================
-const heroImage = document.getElementById("heroImage");
-const hasHero = !!heroImage;
-
-const DEFAULT_SRC = "images/hero/hero-default.jpeg";
-
-const navLinks = document.querySelectorAll(".nav a[data-image]");
 const btn = document.querySelector(".hamburger");
 const nav = document.querySelector(".nav");
 
-// ================================
-// 1) ハンバーガーメニュー開閉
-// ================================
 if (btn && nav) {
   btn.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("is-open");
@@ -29,51 +20,7 @@ if (btn && nav) {
 }
 
 // ================================
-// 2) Hero画像差し替え
-// ================================
-if (hasHero) {
-  navLinks.forEach((link) => {
-    link.addEventListener("mouseenter", () => {
-      if (!window.matchMedia("(hover: hover)").matches) return;
-      const img = link.dataset.image;
-      if (!img) return;
-      heroImage.src = `images/hero/${img}`;
-    });
-
-    link.addEventListener("mouseleave", () => {
-      if (!window.matchMedia("(hover: hover)").matches) return;
-      heroImage.src = DEFAULT_SRC;
-    });
-  });
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      if (!window.matchMedia("(hover: none)").matches) return;
-      const img = link.dataset.image;
-      if (!img) return;
-      e.preventDefault();
-      heroImage.src = `images/hero/${img}`;
-    });
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!window.matchMedia("(hover: none)").matches) return;
-    if (!nav) return;
-    const target = e.target;
-    if (target instanceof Element && !nav.contains(target)) {
-      heroImage.src = DEFAULT_SRC;
-    }
-  });
-
-  window.addEventListener("hashchange", () => {
-    if (location.hash === "" || location.hash === "#home") {
-      heroImage.src = DEFAULT_SRC;
-    }
-  });
-}
-
-// ================================
-// 3) Animation: reveal on scroll
+// 2) reveal（フェードイン）
 // ================================
 const revealEls = document.querySelectorAll(".reveal");
 
@@ -92,3 +39,57 @@ if (revealEls.length) {
 
   revealEls.forEach((el) => io.observe(el));
 }
+
+// ================================
+// 3) スムーススクロール（#リンク）
+// ================================
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener("click", (e) => {
+    const href = a.getAttribute("href");
+    if (!href || href === "#") return;
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // SPでメニュー開いてたら閉じる（保険）
+    if (nav?.classList.contains("is-open")) {
+      nav.classList.remove("is-open");
+      btn?.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+// ================================
+// 4) Heroスライドショー（2.5秒）
+// ================================
+const slides = document.querySelectorAll(".hero-slide");
+let currentSlide = 0;
+
+if (slides.length > 1) {
+  setInterval(() => {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }, 2500);
+}
+
+// ================================
+// 5) トップに戻るボタン（必要なら）
+// ================================
+const backToTop = document.createElement("button");
+backToTop.className = "back-to-top";
+backToTop.innerHTML = "↑";
+backToTop.setAttribute("aria-label", "トップに戻る");
+document.body.appendChild(backToTop);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) backToTop.classList.add("show");
+  else backToTop.classList.remove("show");
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});

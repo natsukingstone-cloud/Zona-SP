@@ -57,40 +57,43 @@
 
   <main>
 
-    <!-- HERO -->
-    <section id="home" class="section hero">
-      <div class="container">
-        <div class="hero__media">
-          <div class="hero-logo">
-            <img src="images/common/logo.png" alt="Zo-na">
-          </div>
-
-          <img id="heroImage" src="images/hero/hero-default.jpeg" alt="Zo-na いちごスイーツ">
-
-         <div class="hero-copy">
-          <h1 class="hero-copy__title">蔵王町のいちごを、浅草で。</h1>
-          <p class="hero-copy__lead">温泉熱栽培のいちごを使った、食べ歩き＆イートインのいちごスイーツ。
-          </p>
-        </div>
-
-          <nav class="hero-overlay" aria-label="Hero menu">
-            <a href="#about">ABOUT</a>
-            <a href="menu.html">MENU</a>
-            <a href="#eat-in">EAT IN SPACE</a>
-            <a href="#seasonal">SEASONAL PICKS</a>
-            <a href="#visit">VISIT</a>
-          </nav>
-
-        </div>
+   <!-- HERO -->
+<section id="home" class="section hero">
+  <div class="container">
+    <div class="hero__media">
+      <div class="hero-logo">
+        <img src="images/common/logo.png" alt="Zo-na">
       </div>
-    </section>
 
-    <div class="section-divider"></div>
+      <!-- スライドショー用の複数画像 -->
+<div class="hero-slideshow">
+  <img class="hero-slide active" src="images/hero/hero-hand-strawberry.jpeg" alt="蔵王の新鮮ないちご">
+  <img class="hero-slide" src="images/hero/hero-sweets-drink.jpeg" alt="いちごスイーツとドリンク">
+  <img class="hero-slide" src="images/hero/hero-strawberries.jpeg" alt="蔵王のいちご">
+  <img class="hero-slide" src="images/hero/hero-default.jpeg" alt="Zo-na いちごスイーツ">
+</div>
+
+      <div class="hero-copy">
+        <h1 class="hero-copy__title">蔵王町のいちごを、浅草で。</h1>
+        <p class="hero-copy__lead">温泉熱栽培のいちごを使った、食べ歩き＆イートインのいちごスイーツ。</p>
+      </div>
+
+      <nav class="hero-overlay" aria-label="Hero menu">
+        <a href="#about">ABOUT</a>
+        <a href="menu.html">MENU</a>
+        <a href="#eat-in">EAT IN SPACE</a>
+        <a href="#seasonal">SEASONAL PICKS</a>
+        <a href="#visit">VISIT</a>
+      </nav>
+
+    </div>
+  </div>
+</section>
 
     <!-- About -->
    <section id="about" class="section reveal">
   <div class="container">
-    <h2 class="section__title">About</h2>
+    <h2 class="section__title">ABOUT</h2>
 
     <p class="about-lead-en">STRAWBERRY SWEETS &amp; DRINKS FROM ZAO, MIYAGI</p>
     <p class="about-lead-jp">蔵王の温泉熱で育ったいちごを、浅草で新しいスイーツのかたちに。</p>
@@ -102,10 +105,10 @@
 
     <!-- About usテキスト -->
     <h3 class="about-subtitle">About us</h3>
-    <p class="about-text--en">
+    <p class="about-text about-text--en">
       Tucked away in the heart of Asakusa, Zo-na is a cozy haven serving sweets crafted from strawberries grown in the warm onsen soil of Zao. Each bite captures nature's gentle sweetness and the care of the people who nurture it. Relax, smile, and enjoy a little moment of happiness with us.
     </p>
-    <p class="about-text--jp">
+    <p class="about-text about-text--jp">
       浅草のまんなかで、蔵王のいちごを使ったスイーツをお届けしています。いちご一粒一粒にこめられたやさしさとぬくもりを、そのまま感じていただけるように。笑顔になれる、ほんのひとときをどうぞ。
     </p>
 
@@ -122,7 +125,7 @@
     <!-- Eat in Space -->
    <section id="eat-in" class="section reveal">
   <div class="container">
-    <h2 class="section__title">Eat in Space</h2>
+    <h2 class="section__title">EAT in SPACE</h2>
 
     <figure class="photo reveal">
       <img src="images/about/about-eatin.jpeg" alt="イートインスペース">
@@ -144,7 +147,7 @@
     <!-- Seasonal Picks -->
     <section id="seasonal" class="section reveal">
   <div class="container">
-    <h2 class="section__title">Seasonal Picks</h2>
+    <h2 class="section__title">SEASONAL PICKS</h2>
 
     <article class="season-card reveal">
       <div class="season-text-block">
@@ -176,9 +179,20 @@
         <h2 class="section__title">VISIT</h2>
 
 
-        <div class="visit__map reveal">
-          <div class="img-placeholder" aria-hidden="true">地図（iframe）をここに</div>
-        </div>
+       <div class="visit__map reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.599242670203!2d139.79366457651903!3d35.71147837257743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec6d14858b7%3A0x1b00f20c34bd2c34!2z44CSMTExLTAwMzIg5p2x5Lqs6YO95Y-w5p2x5Yy65rWF6I2J77yR5LiB55uu77yR77yY4oiS77yR77ySIEpT44OT44Or!5e0!3m2!1sja!2sjp!4v1770453693226!5m2!1sja!2sjp" 
+      width="600" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Zo-na map">
+
+      </iframe>
+
+</div>
+
         
 <div class="visit__grid">
   <!-- 左：所在地・お問い合わせ -->
@@ -196,16 +210,22 @@
 
   <!-- 中央：ロゴ・SNS -->
   <div class="visit__col visit__col--center">
-    <img class="visit__brand" src="images/common/logo.png" alt="Zo-na">
-    <div class="visit__sns">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-        <img src="images/icons/instagram.png" alt="">
-      </a>
-      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
-        <img src="images/icons/tiktok.png" alt="">
-      </a>
-    </div>
+  <div class="visit__brand-line">
+    <span class="visit__brand-text">Zo-na</span>
+    <span class="visit__brand-jp">ゾーナ</span>
+    <img src="images/common/logo-mark.png" alt="" class="visit__brand-mark">
   </div>
+
+  <div class="visit__sns visit__sns--below">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+      <img src="images/icons/instagram.png" alt="">
+    </a>
+    <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+      <img src="images/icons/tiktok.png" alt="">
+    </a>
+  </div>
+</div>
+
 
   <!-- 右：営業時間 -->
   <div class="visit__col visit__col--right">
@@ -228,11 +248,15 @@
 
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p class="footer__copy">© Zo-na</p>
-    </div>
-  </footer>
+ <footer class="footer">
+  <div class="container footer__inner">
+    <a class="footer__logo" href="#home" aria-label="Back to top">
+      <img src="images/common/logo.png" alt="Zo-na">
+    </a>
+    <p class="footer__copy">© Zo-na</p>
+  </div>
+</footer>
+
 
 </body>
 </html>

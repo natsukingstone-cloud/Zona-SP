@@ -232,8 +232,20 @@
     <h2 class="section__title">VISIT</h2>
 
     <div class="visit__map reveal">
-      <div class="img-placeholder" aria-hidden="true">地図（iframe）をここに</div>
-    </div>
+      <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.599242670203!2d139.79366457651903!3d35.71147837257743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec6d14858b7%3A0x1b00f20c34bd2c34!2z44CSMTExLTAwMzIg5p2x5Lqs6YO95Y-w5p2x5Yy65rWF6I2J77yR5LiB55uu77yR77yY4oiS77yR77ySIEpT44OT44Or!5e0!3m2!1sja!2sjp!4v1770453693226!5m2!1sja!2sjp" 
+      width="600" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Zo-na map">
+
+      </iframe>
+
+</div>
+
 
  <div class="visit__grid">
   <!-- 左：所在地・お問い合わせ -->
@@ -251,16 +263,21 @@
 
   <!-- 中央：ロゴ・SNS -->
   <div class="visit__col visit__col--center">
-    <img class="visit__brand" src="images/common/logo.png" alt="Zo-na">
-    <div class="visit__sns">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-        <img src="images/icons/instagram.png" alt="">
-      </a>
-      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
-        <img src="images/icons/tiktok.png" alt="">
-      </a>
-    </div>
+  <div class="visit__brand-line">
+    <span class="visit__brand-text">Zo-na</span>
+    <span class="visit__brand-jp">ゾーナ</span>
+    <img src="images/common/logo-mark.png" alt="" class="visit__brand-mark">
   </div>
+
+  <div class="visit__sns visit__sns--below">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+      <img src="images/icons/instagram.png" alt="">
+    </a>
+    <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+      <img src="images/icons/tiktok.png" alt="">
+    </a>
+  </div>
+</div>
 
   <!-- 右：営業時間 -->
   <div class="visit__col visit__col--right">
@@ -282,11 +299,17 @@
 </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p class="footer__copy">© Zo-na</p>
-    </div>
-  </footer>
+<footer class="footer">
+  <div class="container footer__inner">
+        <a class="footer__logo" href="index.html#home" aria-label="Back to top">
+  <img src="images/common/logo.png" alt="Zo-na">
+</a>
+    <p class="footer__copy">© Zo-na</p>
+  </div>
+</footer>
+
+
+
 
 </body>
 </html>
